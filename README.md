@@ -133,10 +133,7 @@ npm run dev
 # Desktop View
 ![Desktop View](week-11ss.png)
 
-# Live Demo
-
-
 # YouTube link
-
+https://youtu.be/MS-kix66uIY?si=S-ZIzBml5a8nSuZj
 
 
