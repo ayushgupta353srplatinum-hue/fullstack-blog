@@ -16,7 +16,11 @@ const PostForm = ({ fetchPosts }) => {
     formData.append("content", content);
     if (image) formData.append("image", image);
 
-    await axios.post(API, formData);
+   await axios.post(API, formData, {
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
+});
 
     setTitle("");
     setContent("");
