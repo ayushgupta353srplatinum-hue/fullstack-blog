@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PostForm from "./components/PostForm";
 import "./index.css";
-const API = "http://localhost:5000/api/posts";
+const API = "https://fullstack-blog-1-nkcw.onrender.com";
 
 function App() {
   const [posts, setPosts] = useState([]);
