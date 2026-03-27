@@ -11,7 +11,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "axios": "^1.13.6"
   }
-  '
+  ,
   "routes": [
     { "src": "/(.*)", "dest": "/" }
   ]
