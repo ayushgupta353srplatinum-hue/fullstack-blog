@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API = "https://fullstack-blog-2-s0en.onrender.com/api/posts";
+const API = "http://localhost:5000/api/posts";
 
 const PostForm = ({ fetchPosts }) => {
   const [title, setTitle] = useState("");
