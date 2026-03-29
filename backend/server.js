@@ -8,18 +8,27 @@ dotenv.config();
 
 const app = express();
 
-// middleware
-app.use(cors());
+// ✅ CORS FIX (IMPORTANT)
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "DELETE", "PUT"],
+}));
+
 app.use(express.json());
 
-// routes
+// ✅ ROUTES
 app.use("/api/posts", postRoutes);
 
-// DB connect
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("MongoDB Connected"))
-.catch((err) => console.log(err));
+// ✅ TEST ROUTE (check karne ke liye)
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 
-// server start
+// ✅ DB CONNECT
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
+
+// ✅ SERVER
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
