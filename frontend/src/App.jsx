@@ -3,7 +3,7 @@ import axios from "axios";
 import PostForm from "./components/PostForm";
 import "./index.css";
 
-const API = `${import.meta.env.VITE_API_URL}/api/posts`;
+const API = "http://localhost:5000/api/posts";
 
 function App() {
   const [posts, setPosts] = useState([]);
