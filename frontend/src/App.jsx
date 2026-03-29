@@ -2,19 +2,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PostForm from "./components/PostForm";
 import "./index.css";
-const API = "http://localhost:5000/api/posts";
+
+const API = `${import.meta.env.VITE_API_URL}/api/posts`;
 
 function App() {
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const res = await axios.get(API);
-    setPosts(res.data);
+    try {
+      const res = await axios.get(API);
+      setPosts(res.data);
+    } catch (err) {
+      console.log("ERROR FETCH:", err);
+    }
   };
 
   const deletePost = async (id) => {
-    await axios.delete(`${API}/${id}`);
-    fetchPosts();
+    try {
+      await axios.delete(`${API}/${id}`);
+      fetchPosts();
+    } catch (err) {
+      console.log("DELETE ERROR:", err);
+    }
   };
 
   useEffect(() => {
@@ -23,7 +32,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className="title"> Blog App </h1>
+      <h1 className="title">Blog App</h1>
 
       <PostForm fetchPosts={fetchPosts} />
 
